@@ -1,7 +1,4 @@
 class BasketItemsController < ApplicationController
-  def index
-  end
-
   def create
     @basket = find_or_create_basket
     @product_variant = ProductVariant.find(params[:product_variant_id])
@@ -16,6 +13,9 @@ class BasketItemsController < ApplicationController
   end
 
   def destroy
+    @basket_item = BasketItem.find(params[:id])
+    @basket_item.destroy
+    redirect_to basket_path
   end
 
   private

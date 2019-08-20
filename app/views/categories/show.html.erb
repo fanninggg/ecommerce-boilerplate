@@ -1,5 +1,0 @@
-<h1><%= @category.name %></h1>
-<% @category.products.each do |product| %>
-  <p><%= link_to product.name, product_path(product) %></p>
-<% end %>
-<%= link_to "Delete Category", category_path(@category), method: :delete  %>

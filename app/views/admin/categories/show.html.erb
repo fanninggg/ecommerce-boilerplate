@@ -1,0 +1,7 @@
+<p>Admin</p>
+<h1><%= @category.name %></h1>
+<% @category.products.each do |product| %>
+  <p><%= link_to product.name, admin_product_path(product) %></p>
+<% end %>
+<%= link_to "Edit Category", edit_admin_category_path(@category)  %>
+<%= link_to "Delete Category", admin_category_path(@category), method: :delete  %>
