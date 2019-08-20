@@ -1,0 +1,14 @@
+<h1><%= @product_variant.name %></h1>
+<h3><%= @product_variant.price %></h3>
+<h3><%= @product_variant.SKU %></h3>
+<h4>Parent Product: <%= @product_variant.product.name %></h4>
+
+<%= simple_form_for([ @product_variant, BasketItem.new(product_variant: @product_variant) ]) do |f| %>
+  <%= f.input :quantity, collection: [1,2,3,4,5] %>
+  <%= f.submit 'Add To Basket', class: "btn btn-primary" %>
+<% end %>
+<br>
+<%= link_to "Edit this variant", edit_product_product_variant_path(@product_variant.product) %>
+<br>
+<%= link_to "Delete this variant", product_variant_path(@product_variant), method: :delete %>
+

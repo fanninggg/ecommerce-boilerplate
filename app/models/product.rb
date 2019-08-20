@@ -1,4 +1,4 @@
 class Product < ApplicationRecord
   belongs_to :category
-  has_many :shades, dependent: :destroy
+  has_many :product_variants, dependent: :destroy
 end
