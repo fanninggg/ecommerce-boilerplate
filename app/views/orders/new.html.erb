@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <% if @user.addresses %>
+      <div class="col-6">
+        <p>The back end on this section is hacky AF. Currently adding an address adds it to the user, then I test whether the user has an address, if they do I display this page. Also I then use the first user address to set the order.address in the create order method. Needs to be fixed alongside the RailsBank integration 🤷‍♂️</p>
+        <h3>Payment Method</h3>
+        <h1 style="color: red">RailsBank Lives Here</h1>
+        <%= simple_form_for @order do |f| %>
+          <%= f.input :status, :as => :hidden, :input_html => { :value => 'false' } %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="col-6">
+        <h3>Delivery Address</h3>
+        <%= simple_form_for @address do |f| %>
+          <%= f.input :name %>
+          <%= f.input :line1 %>
+          <%= f.input :line2 %>
+          <%= f.input :postcode %>
+          <%= f.input :city %>
+          <%= f.input :county %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="col-6">
+      <h3>Order Summary</h3>
+      <% sum = 0 %>
+      <% @basket.basket_items.each do |product| %>
+        <p><%= product.product_variant.name %> - £<%= product.product_variant.price %></p>
+        <% sum += product.product_variant.price.to_i %>
+      <% end %>
+      <p>Total - £<%= sum %></p>
+    </div>
+  </div>
+</div>
+

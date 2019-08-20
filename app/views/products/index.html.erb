@@ -1,5 +1,0 @@
-<% @products.each do |product| %>
-  <h3><%= link_to product.name, product_path(product) %></h3>
-<% end %>
-
-<%= link_to "Add a product", new_product_path, class: "btn btn-primary" %>

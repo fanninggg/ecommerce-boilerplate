@@ -1,0 +1,11 @@
+<p>Admin</p>
+
+<h1><%= @product_variant.name %></h1>
+<h3>£<%= @product_variant.price %></h3>
+<h3><%= @product_variant.SKU %></h3>
+<h4>Parent Product: <%= @product_variant.product.name %></h4>
+
+<%= link_to "Edit this variant", edit_admin_product_product_variant_path(@product_variant.product) %>
+<br>
+<%= link_to "Delete this variant", admin_product_variant_path(@product_variant), method: :delete %>
+

@@ -1,0 +1,24 @@
+<h1>My Basket</h1>
+<div class="d-flex w-100">
+  <p>Item-</p>
+  <p>Price-</p>
+  <p>Quantity-</p>
+  <p>Total</p>
+</div>
+<% @basket.basket_items.each do |bi| %>
+  <div class="d-flex w-100">
+  <p><%= bi.product_variant.name %>-</p>
+  <p>£<%= bi.product_variant.price %>-</p>
+  <p><%= bi.quantity %>-</p>
+  <p>£<%= bi.product_variant.price.to_i * bi.quantity.to_i %></p>
+  <%= link_to basket_item_path(bi), method: :delete do %>
+    <i class="fas fa-times"></i>
+  <% end %>
+    </div>
+<% end %>
+
+<% if @basket.basket_items != [] %>
+  <%= link_to "Checkout", orders_new_path %>
+<% else %>
+  <%= link_to "Empty, add some items", product_variants_path %>
+<% end %>

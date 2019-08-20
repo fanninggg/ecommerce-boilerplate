@@ -1,0 +1,3 @@
+<% @order.order_items.each do |item| %>
+  <p><%= item.product_variant.name %> - <%= item.quantity %> </p>
+<% end %>

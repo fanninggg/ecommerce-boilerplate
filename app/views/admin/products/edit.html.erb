@@ -1,4 +1,5 @@
-<%= simple_form_for @product do |f| %>
+<p>Admin</p>
+<%= simple_form_for [:admin, @product] do |f| %>
   <%= f.input :name %>
   <%= f.input :description %>
   <%= f.association :category %>

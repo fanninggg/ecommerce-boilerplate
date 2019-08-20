@@ -1,0 +1,6 @@
+<p>Admin</p>
+<% @products.each do |product| %>
+  <h3><%= link_to product.name, admin_product_path(product) %></h3>
+<% end %>
+
+<%= link_to "Add a product", new_admin_product_path, class: "btn btn-primary" %>

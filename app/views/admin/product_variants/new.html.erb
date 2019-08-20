@@ -1,4 +1,6 @@
-<%= simple_form_for [@product, @product_variant] do |f| %>
+<p>Admin</p>
+
+<%= simple_form_for [:admin, @product, @product_variant] do |f| %>
   <%= f.input :name %>
   <%= f.input :SKU %>
   <%= f.input :price %>

@@ -1,0 +1,4 @@
+<p>Admin</p>
+<% @product_variants.each do |variant| %>
+  <h3><%= link_to variant.name, product_variant_path(variant) %></h3>
+<% end %>
